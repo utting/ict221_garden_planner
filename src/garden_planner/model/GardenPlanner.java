@@ -16,8 +16,9 @@ import java.util.Scanner;
 public class GardenPlanner {
     public static final String GARDEN_PLANNER_VERSION = "Garden Planner v0.2";
     public static final double SOIL_DEPTH = 0.2;  // metres
-    private final double soilPrice;
-    private final double wallPrice;
+
+    private double soilPrice;
+    private double wallPrice;
 
     /** The collection of all the garden beds in the current design. */
     private final ArrayList<Rectangle> beds = new ArrayList<>();
@@ -33,6 +34,13 @@ public class GardenPlanner {
     public GardenPlanner(double soilPerCubicMetre, double wallPerMetre) {
         this.soilPrice = soilPerCubicMetre;
         this.wallPrice = wallPerMetre;
+    }
+
+    public GardenPlanner() {
+        // Example prices are roughly based on http://centenarylandscaping.com.au.
+        // 1 cubic metre of Ultima Organic Garden Soil: $81.00.
+        // 200x75mm CCA Hardwood Sleeper, 3.0m long: $51.00
+        this(81.0, 51.00 / 3.0);
     }
 
     /**
@@ -64,6 +72,39 @@ public class GardenPlanner {
      */
     public double getTotalGardenArea() {
         return totalGardenArea;
+    }
+
+    /**
+     *
+     * @return price of garden soil in dollars per cubic metre.
+     */
+    public double getSoilPrice() {
+        return soilPrice;
+    }
+
+    /**
+     * Set the soil price.
+     * @param soilPrice in dollars per cubic metre.
+     */
+    public void setSoilPrice(double soilPrice) {
+        this.soilPrice = soilPrice;
+    }
+
+    /**
+     *
+     * @return price of garden bed wall, per metre.
+     */
+    public double getWallPrice() {
+        return wallPrice;
+    }
+
+    /**
+     * Set the price of garden bed walls.
+     *
+     * @param wallPrice in dollars per metre.
+     */
+    public void setWallPrice(double wallPrice) {
+        this.wallPrice = wallPrice;
     }
 
     /**

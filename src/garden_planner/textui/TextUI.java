@@ -18,11 +18,13 @@ import java.util.Scanner;
  * @author Mark Utting
  */
 public class TextUI {
-
 	private GardenPlanner planner;
 
-	public TextUI(double gardenSoil, double sleeperCost) {
-		planner = new GardenPlanner(gardenSoil, sleeperCost);
+    /**
+     * Create a new garden planner with a simple text user interface.
+     */
+	public TextUI() {
+		planner = new GardenPlanner();
 	}
 
 	/**
@@ -49,14 +51,11 @@ public class TextUI {
 	 * @throws FileNotFoundException
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
-		// Example prices are roughly based on http://centenarylandscaping.com.au.
-		double gardenSoil = 90.00 * 0.9;   // 1 cubic metre of Ultima Organic Garden Soil.
-		double sleeperCost = 51.00 / 3.0;  // 200x75mm CCA Hardwood Sleeper, 3.0m long.
-		if (args.length >= 2) {
-			gardenSoil = Double.parseDouble(args[0]);
-			sleeperCost = Double.parseDouble(args[1]);
-		}
-		TextUI ui = new TextUI(gardenSoil, sleeperCost);
+        TextUI ui = new TextUI();
+        if (args.length >= 2) {
+			ui.planner.setSoilPrice(Double.parseDouble(args[0]));
+			ui.planner.setWallPrice(Double.parseDouble(args[1]));
+        }
 
 		// set up the garden design
 		if (args.length == 3) {
