@@ -61,11 +61,7 @@ public class TextUI {
 		if (args.length == 3) {
 			ui.planner.readBeds(new Scanner(new File(args[2])));
 		} else {
-			List<Rectangle> beds = ui.planner.getBeds();
-			// use our default layout: two rectangles with a square in the middle
-			beds.add(new Rectangle(2.0, 1.0));
-			beds.add(new Rectangle(2.0, 2.0));
-			beds.add(new Rectangle(2.0, 1.0));
+			ui.planner.createBasicDesign();
 		}
 
 		ui.printGarden();

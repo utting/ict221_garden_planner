@@ -44,6 +44,37 @@ public class GardenPlanner {
     }
 
     /**
+     * Resets the garden design to a basic three rectangle design.
+     */
+    public void createBasicDesign() {
+        beds.clear();
+        // use our default layout: two rectangles with a larger square in the middle
+        Rectangle r1 = new Rectangle();
+        Rectangle r2 = new Rectangle();
+        Rectangle r3 = new Rectangle();
+
+        r1.setWidth(1.0);
+        r2.setWidth(2.0);
+        r3.setWidth(1.0);
+
+        r1.setHeight(2.0);
+        r2.setHeight(2.0);
+        r3.setHeight(2.0);
+
+        r1.setLeft(1.0);
+        r2.setLeft(3.0);
+        r3.setLeft(6.0);
+
+        r1.setTop(1.0);
+        r2.setTop(1.0);
+        r3.setTop(1.0);
+
+        beds.add(r1);
+        beds.add(r2);
+        beds.add(r3);
+    }
+
+    /**
      * Gets the list of garden beds in the current design.
      *
      * WARNING: passing out the whole list allows clients to add/remove beds.
@@ -121,8 +152,13 @@ public class GardenPlanner {
             // System.out.println(Arrays.toString(words));  // just for debugging
             if (line.startsWith("#") || line.length() == 0) {
                 // we skip comment lines and empty lines.
-            } else if (words.length == 3 && words[0].toLowerCase().equals("rectangle")) {
-                getBeds().add(new Rectangle(Double.parseDouble(words[1]), Double.parseDouble(words[2])));
+            } else if (words.length == 5 && words[0].toLowerCase().equals("rectangle")) {
+                Rectangle rect = new Rectangle();
+                rect.setLeft(Double.parseDouble(words[1]));
+                rect.setTop(Double.parseDouble(words[2]));
+                rect.setWidth(Double.parseDouble(words[3]));
+                rect.setHeight(Double.parseDouble(words[4]));
+                getBeds().add(rect);
             } else {
                 throw new IllegalArgumentException("ERROR: illegal garden bed: " + line);
             }
