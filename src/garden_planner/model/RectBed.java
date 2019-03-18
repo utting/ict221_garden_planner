@@ -5,13 +5,13 @@ package garden_planner.model;
  *
  * @author Mark Utting
  */
-public class Rectangle {
+public class RectBed {
 	private double left = 0.0;
 	private double top = 0.0;
 	private double width = 1.0;
 	private double height = 1.0;
 
-	public Rectangle() {
+	public RectBed() {
 	}
 
 	/**

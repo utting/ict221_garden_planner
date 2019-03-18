@@ -1,13 +1,10 @@
 package garden_planner.textui;
 
 import garden_planner.model.GardenPlanner;
-import garden_planner.model.Rectangle;
+import garden_planner.model.RectBed;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -34,7 +31,7 @@ public class TextUI {
 		planner.recalculateTotals();
 		System.out.println(planner.GARDEN_PLANNER_VERSION);
 		System.out.println("Garden design is:");
-		for (Rectangle bed : planner.getBeds()) {
+		for (RectBed bed : planner.getBeds()) {
 			System.out.println("    " + bed);
 		}
 		System.out.printf("Total garden area is: %8.2f m2.\n", planner.getTotalGardenArea());

@@ -21,7 +21,7 @@ public class GardenPlanner {
     private double wallPrice;
 
     /** The collection of all the garden beds in the current design. */
-    private final ArrayList<Rectangle> beds = new ArrayList<>();
+    private final ArrayList<RectBed> beds = new ArrayList<>();
     private double totalWallLength;
     private double totalGardenArea;
 
@@ -49,9 +49,9 @@ public class GardenPlanner {
     public void createBasicDesign() {
         beds.clear();
         // use our default layout: two rectangles with a larger square in the middle
-        Rectangle r1 = new Rectangle();
-        Rectangle r2 = new Rectangle();
-        Rectangle r3 = new Rectangle();
+        RectBed r1 = new RectBed();
+        RectBed r2 = new RectBed();
+        RectBed r3 = new RectBed();
 
         r1.setWidth(1.0);
         r2.setWidth(2.0);
@@ -83,7 +83,7 @@ public class GardenPlanner {
      *
      * @return a list of garden beds.
      */
-    public List<Rectangle> getBeds() {
+    public List<RectBed> getBeds() {
         return this.beds;
     }
 
@@ -153,7 +153,7 @@ public class GardenPlanner {
             if (line.startsWith("#") || line.length() == 0) {
                 // we skip comment lines and empty lines.
             } else if (words.length == 5 && words[0].toLowerCase().equals("rectangle")) {
-                Rectangle rect = new Rectangle();
+                RectBed rect = new RectBed();
                 rect.setLeft(Double.parseDouble(words[1]));
                 rect.setTop(Double.parseDouble(words[2]));
                 rect.setWidth(Double.parseDouble(words[3]));
@@ -173,7 +173,7 @@ public class GardenPlanner {
     public void recalculateTotals() {
         totalWallLength = 0.0;
         totalGardenArea = 0.0;
-        for (Rectangle bed : this.beds) {
+        for (RectBed bed : this.beds) {
             totalGardenArea += bed.getArea();
             totalWallLength += bed.getPerimeter();
         }
