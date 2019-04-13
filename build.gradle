@@ -22,6 +22,17 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
 }
 
+sourceSets.main {
+    java {
+        srcDir 'src/main/java'
+    }
+    resources {
+        // we also look for resources (like *.fxml) in src/main/java
+        srcDirs = ['src/main/java', 'src/main/resources']
+        exclude "**/*.java"
+    }
+}
+
 javafx {
     modules = [ 'javafx.controls', 'javafx.fxml' ]
     version = "11.0.2"
