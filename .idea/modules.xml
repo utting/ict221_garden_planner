@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ict221_garden_planner.iml" filepath="$PROJECT_DIR$/ict221_garden_planner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ict221.ict221_garden_planner.iml" filepath="$PROJECT_DIR$/.idea/modules/ict221.ict221_garden_planner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ict221.ict221_garden_planner.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ict221.ict221_garden_planner.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ict221.ict221_garden_planner.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ict221.ict221_garden_planner.test.iml" />
     </modules>
   </component>
 </project>
