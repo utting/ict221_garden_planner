@@ -14,7 +14,7 @@ public class GuiMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         System.out.println("class=" + getClass());
-        URL fxml = getClass().getResource("/garden_planner/gui/garden_gui.fxml");
+        URL fxml = getClass().getResource("garden_gui.fxml");
         System.out.println("URL=" + fxml);
         Parent root = FXMLLoader.load(fxml);
         //Button root = new Button("TODO: design garden planner GUI");
